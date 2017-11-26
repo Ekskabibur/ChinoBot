@@ -97,9 +97,9 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "protectionOn":True,
-    "atjointicket":True
+    "atjointicket":True,
     "protectionOn":True,
-	"Protectguest":False,
+    "Protectguest":False,
     }
 mimic = {
     "copy":False,
