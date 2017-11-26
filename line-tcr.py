@@ -98,7 +98,6 @@ wait = {
     "dblacklist":False,
     "protectionOn":True,
     "atjointicket":True
-	"Protectcancel":False,
     "protectionOn":True,
 	"Protectguest":False,
     }
