@@ -498,12 +498,12 @@ def bot(op):
             elif msg.text is None:
                 return
             elif msg.text in ["Key","help","Help"]:
+			if msg.from_ in admin
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helpMessage)
                 else:
                     cl.sendText(msg.to,helpt)
             elif ("Gn " in msg.text):
-				if msg.from_ in admin:
 					if msg.toType == 2:
 						X = cl.getGroup(msg.to)
 						X.name = msg.text.replace("Gn ","")
