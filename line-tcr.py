@@ -15,12 +15,14 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage ="""¤¤¤¤ Chino Bot ¤¤¤¤
+helpMessage ="""¤¤¤¤   Chino Bot   ¤¤¤¤
 ¤ Id︎
 ¤ Mid
 ¤ Me︎
 ¤ TL︎:「Text」
 ¤ Mc 「mid」
+¤ Tag all
+¤ Tag all
 ¤ K on/off
 ¤ Join︎ on/off
 ¤ Gcancel:︎「Number of people」
@@ -83,9 +85,9 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
-    'message':"Hai kakak, Salken",
+    'message':"Hai kak, Salken",
     "lang":"JP",
-    "comment":"Hai kakak, Salken",
+    "comment":"Hai kak, Salken",
     "commentOn":True,
     "commentBlack":{},
     "wblack":False,
@@ -96,8 +98,16 @@ wait = {
     "dblacklist":False,
     "protectionOn":True,
     "atjointicket":True
+	"Protectcancel":False,
+    "protectionOn":True,
+	"Protectguest":False,
     }
-
+mimic = {
+    "copy":False,
+    "copy2":False,
+    "status":False,
+    "target":{}
+    }
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -980,6 +990,32 @@ def bot(op):
 					msg.contentType = 13
 					msg.contentMetadata = {"mid":mmid}
 					cl.sendMessage(msg)
+			elif msg.text in ["Guest On","guest on"]:
+              if msg.from_ in admin:
+                if wait["Protectguest"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Guest Stranger On")
+                    else:
+                        cl.sendText(msg.to,"done")
+                else:
+                    wait["Protectguest"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Guest Stranger On")
+                    else:
+                        cl.sendText(msg.to,"done")
+            elif msg.text in ["Guest Off","guest off"]:
+              if msg.from_ in admin:
+                if wait["Protectguest"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Guest Stranger Off")
+                    else:
+                        cl.sendText(msg.to,"done")
+                else:
+                    wait["Protectguest"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Guest Stranger Off")
+                    else:
+                        cl.sendText(msg.to,"done")
             elif msg.text in ["é€£çµ¡å…ˆ:ã‚ªãƒ³","K on","Contact on","é¡¯ç¤ºï¼šé–‹"]:
 				if msg.from_ in admin:
 					if wait["contact"] == True:
@@ -1646,7 +1682,7 @@ def bot(op):
 										kicker.kickoutFromGroup(msg.to,[target])
 										print (msg.to,[g.mid])
 									except:
-										ki.sendText(msg.to,"Succes Cv")
+										ki.sendText(msg.to,"Success Cv")
 										kk.sendText(msg.to,"Fuck You")
             elif "Blacklist @ " in msg.text:
 				if msg.from_ in admin:
@@ -1681,14 +1717,14 @@ def bot(op):
 							if _nametarget == g.displayName:
 								targets.append(g.mid)
 						if targets == []:
-							ki.sendText(msg.to,"Not found 􀜁􀅔Har Har􏿿")
+							ki.sendText(msg.to,"Not found")
 						else:
 							for target in targets:
 								try:
 									wait["blacklist"][target] = True
 									f=codecs.open('st2__b.json','w','utf-8')
 									json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-									ki.sendText(msg.to,"Succes 􀜁􀅔Har Har􏿿")
+									ki.sendText(msg.to,"Succes")
 								except:
 									ki.sendText(msg.to,"Error")
             elif "Unban @" in msg.text:
@@ -1705,23 +1741,19 @@ def bot(op):
 							if _nametarget == g.displayName:
 								targets.append(g.mid)
 						if targets == []:
-							ki.sendText(msg.to,"Not found 􀜁􀅔Har Har􏿿")
-							kk.sendText(msg.to,"Not found 􀜁􀅔Har Har􏿿")
+							ki.sendText(msg.to,"Not found")
+							kk.sendText(msg.to,"Not found")
 						else:
 							for target in targets:
 								try:
 									del wait["blacklist"][target]
 									f=codecs.open('st2__b.json','w','utf-8')
 									json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-									ki.sendText(msg.to,"Succes 􀜁􀅔Har Har􏿿")
+									ki.sendText(msg.to,"Success")
 								except:
-									ki.sendText(msg.to,"Succes 􀜁􀅔Har Har􏿿")
+									ki.sendText(msg.to,"Success")
 #-----------------------------------------------
-            elif msg.text in ["Test"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"Siap Bos 􀨁􀄻double thumbs up􏿿􀜁􀅔Har Har􏿿")
-#-----------------------------------------------
-            elif "Bot say " in msg.text:
+            elif "Chino Bilang " in msg.text:
 				if msg.from_ in admin:
 					bctxt = msg.text.replace("Bot say ","")
 					ki.sendText(msg.to,(bctxt))
@@ -1731,34 +1763,19 @@ def bot(op):
 				ki.sendText(msg.to,"Botnya Kucing Gembul")
 
 #-----------------------------------------------
+            elif msg.text in ["Lisa","Nia"]:
+				if msg.from_ in admin:
+					ki.sendText(msg.to,"Loli Legal")
+            elif msg.text in ["Nova"]:
+					ki.sendText(msg.to,"Target Bully-nya Lisa")
 
-            elif msg.text in ["hmm"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"Leo Homoan gw")
-            elif msg.text in [":v"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"Aldino naena kuy")
-            elif msg.text in ["wkwkwk"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"malik mana ya , gw jadi kangen naena sama dia")
-            elif msg.text in ["Cv say chomel pekok"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-					kk.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-					kc.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
             elif msg.text in ["#welcome"]:
 				if msg.from_ in admin:
-					ki.sendText(msg.to,"Selamat datang di Chivas Family Room")
+					ki.sendText(msg.to,"Selamat datang di Werewolf play game")
 					kk.sendText(msg.to,"Jangan nakal ok!")
 #-----------------------------------------------
-            elif msg.text in ["PING","Ping","ping","Samlekom","samlekom"]:
-				ki.sendText(msg.to,"Mamanx 􀜁􀅔Har Har􏿿")
-				kk.sendText(msg.to,"Ngentod 􀜁􀅔Har Har􏿿")
-				kc.sendText(msg.to,"Yuuk 􀜁􀅔Har Har􏿿")
-#-----------------------------------------------
-            elif msg.text in ["Responsename","responsename"]:
-				if msg.from_ in admin:
-					ki.sendText(msg.to,"Siap Bos 􀜁􀅔Har Har􏿿")
+            elif msg.text in ["Hai Chino", "Hai chino"]:
+					ki.sendText(msg.to,"Ada apa kak?")
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:
@@ -1767,6 +1784,34 @@ def bot(op):
 					cl.sendText(msg.to, "Testing...")
 					elapsed_time = time.time() - start
 					cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+#-------------Fungsi Tag All Start---------------#
+            elif msg.text in ["Summon","Tag all"]:
+                  group = cl.getGroup(msg.to)
+                  nama = [contact.mid for contact in group.members]
+
+                  cb = ""
+                  cb2 = ""
+                  strt = int(0)
+                  akh = int(0)
+                  for md in nama:
+                      akh = akh + int(6)
+
+                      cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
+
+                      strt = strt + int(7)
+                      akh = akh + 1
+                      cb2 += "@nrik \n"
+
+                  cb = (cb[:int(len(cb)-1)])
+                  msg.contentType = 0
+                  msg.text = cb2
+                  msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
+
+                  try:
+                      cl.sendMessage(msg)
+                  except Exception as error:
+                      print error
+#-------------Fungsi Tag All Finish---------------#
 
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
@@ -1812,7 +1857,7 @@ def bot(op):
 							return
 						for jj in matched_list:
 							cl.kickoutFromGroup(msg.to,[jj])
-						cl.sendText(msg.to,"Peler 􀜁􀅔Har Har􏿿")
+						cl.sendText(msg.to,"Bye Bye")
             elif msg.text in ["Clear"]:
 				if msg.from_ in admin:
 					if msg.toType == 2:
@@ -1875,7 +1920,7 @@ def a2():
         return True
 def autolike():
 			for zx in range(0,20):
-				hasil = cl.activity(limit=20)
+				hasil = cl.activity(limit=5)
 				if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
 					try:    
 						cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
@@ -1887,7 +1932,7 @@ def autolike():
 							pass
 				else:
 						print "Already Liked"
-			time.sleep(500)
+			time.sleep(1000)
 thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
