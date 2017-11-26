@@ -220,7 +220,6 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 
         if op.type == 19:
-			if msg.from_ in admin:
                 if mid in op.param3:
                     if op.param2 in Bots:
                         pass
