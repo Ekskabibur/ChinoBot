@@ -83,9 +83,9 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
-    'message':"Owner. Twitter : @tenaya_bali",
+    'message':"Hai kakak, Salken",
     "lang":"JP",
-    "comment":"Owner. Twitter : @tenaya_bali",
+    "comment":"Hai kakak, Salken",
     "commentOn":True,
     "commentBlack":{},
     "wblack":False,
@@ -1728,7 +1728,7 @@ def bot(op):
 #-----------------------------------------------
 
             elif msg.text in ["About","Own"]:
-				ki.sendText(msg.to,"Owner : line.me/ti/p/~bali999")
+				ki.sendText(msg.to,"Botnya Kucing Gembul")
 
 #-----------------------------------------------
 
@@ -1879,9 +1879,9 @@ def autolike():
 				if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
 					try:    
 						cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-						cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by @tenaya_bali")
+						cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by Chinobot")
 						kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-						kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by @tenaya_bali")
+						kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by Chinobot")
 						print "Like"
 					except:
 							pass
