@@ -989,32 +989,7 @@ def bot(op):
 					msg.contentType = 13
 					msg.contentMetadata = {"mid":mmid}
 					cl.sendMessage(msg)
-			elif msg.text in ["Guest On","guest on"]:
-              if msg.from_ in admin:
-                if wait["Protectguest"] == True:
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Guest Stranger On")
-                    else:
-                        cl.sendText(msg.to,"done")
-                else:
-                    wait["Protectguest"] = True
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Guest Stranger On")
-                    else:
-                        cl.sendText(msg.to,"done")
-            elif msg.text in ["Guest Off","guest off"]:
-              if msg.from_ in admin:
-                if wait["Protectguest"] == False:
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Guest Stranger Off")
-                    else:
-                        cl.sendText(msg.to,"done")
-                else:
-                    wait["Protectguest"] = False
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Guest Stranger Off")
-                    else:
-                        cl.sendText(msg.to,"done")
+			
             elif msg.text in ["é€£çµ¡å…ˆ:ã‚ªãƒ³","K on","Contact on","é¡¯ç¤ºï¼šé–‹"]:
 				if msg.from_ in admin:
 					if wait["contact"] == True:
