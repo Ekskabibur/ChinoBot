@@ -2407,7 +2407,7 @@ def a2():
     else:
 def autolike():
 			for zx in range(0,20):
-				hasil = cl.activity(limit=00)
+				hasil = cl.activity(limit=20)
 				if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
 					try:    
 						cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
