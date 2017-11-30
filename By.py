@@ -280,8 +280,7 @@ def bot(op):
            if wait["ProtectQR"] == True:
                if op.param2 not in Bots:
                    G = cl.getGroup(op.param1)
-                   G.preventJoinByTicket = 
-		True
+                   G.preventJoinByTicket = True
                    ki.kickoutFromGroup(op.param1,[op.param2])
                    cl.updateGroup(G)
         #------Open QR Kick finish-----#
