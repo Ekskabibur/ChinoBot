@@ -636,7 +636,7 @@ def bot(op):
                     ki.sendText(msg.to, helpMember)
 
             elif msg.text in ["Perintah Creator"]:
-                if msg.from_ in admin:
+                if msg.from_ in creator:
                     ki.sendText(msg.to, helpCreator)
                 else:
                     ki.sendText(msg.to, "Maaf, kakak bukan Creator")
@@ -647,13 +647,11 @@ def bot(op):
                     ki.sendText(msg.to, "Maaf, kakak bukan Admin")
 
             elif msg.text in ["Kulit kerang ajaib", "Kerang ajaib"]:
-                if msg.from_ in admin:
-                    ki.sendText(msg.to, "Tulis Apakah (Pertanyaan kakak)")
+                    ki.sendText(msg.to, "Apakah (Pertanyaan kakak)")
+
             elif msg.text in ["Translate ID"]:
-                if msg.from_ in admin:
                     ki.sendText(msg.to, "Translate-id (kata-katanya)")
             elif msg.text in ["Translate EN"]:
-                if msg.from_ in admin:
                     ki.sendText(msg.to, "Translate-en (kata-katanya)")
 
                     # ------------Help Message--------------
