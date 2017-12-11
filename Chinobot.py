@@ -31,6 +31,7 @@ helpMember="""
 => Translate EN
 => Translate ID
 => Kulit kerang ajaib/ Kerang ajaib
+
 """
 helpCreator="""
 !Command Creator!
