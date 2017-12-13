@@ -132,7 +132,7 @@ def sendMessage(to, text, contentMetadata={}, contentType=0):
     messageReq[to] += 1
 
 def NOTIFIED_READ_MESSAGE(op):
-        if op.type == 55:
+	if op.type == 55:
             try:
                 if op.param1 in wait2['readPoint']:
                     Name = cl.getContact(op.param2).displayName
@@ -144,6 +144,7 @@ def NOTIFIED_READ_MESSAGE(op):
                 else:
                     pass
             except:
+	    	pass
 	    
 def sendImage(self, to_, path):
       M = Message(to=to_, text=None, contentType = 1)
