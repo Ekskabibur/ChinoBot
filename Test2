@@ -131,6 +131,20 @@ def sendMessage(to, text, contentMetadata={}, contentType=0):
         messageReq[to] = -1
     messageReq[to] += 1
 
+def NOTIFIED_READ_MESSAGE(op):
+        if op.type == 55:
+            try:
+                if op.param1 in wait2['readPoint']:
+                    Name = cl.getContact(op.param2).displayName
+                    if Name in wait2['readMember'][op.param1]:
+                        pass
+                    else:
+                        wait2['readMember'][op.param1] += "\nツ1�71ￄ1�771ￄ1�71ￄ1�7771ￄ1�71ￄ1�771ￄ1�71ￄ1�77771ￄ1�71ￄ1�771ￄ1�71ￄ1�7771ￄ1�71ￄ1�771ￄ1�71ￄ1�77777" + Name
+                        wait2['ROM'][op.param1][op.param2] = "ツ1�71ￄ1�771ￄ1�71ￄ1�7771ￄ1�71ￄ1�771ￄ1�71ￄ1�77771ￄ1�71ￄ1�771ￄ1�71ￄ1�7771ￄ1�71ￄ1�771ￄ1�71ￄ1�77777" + Name
+                else:
+                    pass
+            except:
+	    
 def sendImage(self, to_, path):
       M = Message(to=to_, text=None, contentType = 1)
       M.contentMetadata = None
