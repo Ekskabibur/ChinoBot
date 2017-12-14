@@ -1756,9 +1756,9 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "Please turn on the name clock")
 
-                        # -------Cek sider biar mirip kek siri------------------#
-                        elif "Setlastpoint" in msg.text:
-                        subprocess.Popen("echo '' > dataSeen/" + msg.to + ".txt", shell=True, stdout=subprocess.PIPE)
+                    # -------Cek sider biar mirip kek siri------------------#
+                subprocess.Popen("echo '' > dataSeen/" + msg.to + ".txt", shell=True, stdout=subprocess.PIPE)
+            elif "Setlastpoint" in msg.text:
                         # cl.sendText(msg.to, "Checkpoint checked!")
                         cl.sendText(msg.to, "Set the lastseens' point(｀・ω・´)\n\n" + datetime.now().strftime('%H:%M:%S'))
                         print "Setlastpoint"
