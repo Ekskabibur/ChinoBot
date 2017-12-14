@@ -27,8 +27,6 @@ helpMember="""
 !CommandMember!
 => Creator = Melihat Pembuat Bot
 => Chino bilang = Mengikuti Apa Yang DiKatakan
-=> Translate EN
-=> Translate ID
 => Kulit kerang ajaib/ Kerang ajaib
 """
 helpCreator="""
@@ -642,13 +640,9 @@ def bot(op):
                     cl.sendText(msg.to, helpAdmin)
                 else:
                     cl.sendText(msg.to, "Maaf, kakak bukan Admin")
-
             elif msg.text in ["Kulit kerang ajaib", "Kerang ajaib"]:
                 cl.sendText(msg.to, "Tulis Apakah (Pertanyaan kakak)")
-            elif msg.text in ["Translate ID"]:
-                cl.sendText(msg.to, "Translate-id (kata-katanya)")
-            elif msg.text in ["Translate EN"]:
-                cl.sendText(msg.to, "Translate-en (kata-katanya)")
+                
 # ------------Help Message--------------
 
             elif ("Gn " in msg.text):
@@ -1008,28 +1002,6 @@ def bot(op):
             jawaban = random.choice(jawab)
             cl.sendText(msg.to, jawaban)
         # ------------------------------------------
-        # --------------------------------- TRANSLATE --------------------------------
-        elif "/translate-en " in msg.text:
-            txt = msg.text.replace("/translate-en ", "")
-            try:
-                gs = goslate.Goslate()
-                trs = gs.translate(txt, 'en')
-                cl.sendText(msg.to, trs)
-                print '[Command] Translate EN'
-            except:
-                cl.sendText(msg.to, 'Error.')
-
-        elif "/translate-id " in msg.text:
-            txt = msg.text.replace("/translate-en ", "")
-            try:
-                gs = goslate.Goslate()
-                trs = gs.translate(txt, 'id')
-                cl.sendText(msg.to, trs)
-                print '[Command] Translate ID'
-            except:
-                cl.sendText(msg.to, 'Error.')
-                # ----------------------------------------------------------------------------
-
         elif "Admin add @" in msg.text:
             if msg.from_ in creator:
                 print "[Command]Staff add executing"
