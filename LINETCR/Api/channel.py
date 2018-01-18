@@ -19,7 +19,7 @@ class Channel:
     channel_query_path = "/CH4"
 
     UA = "Mozilla/5.0"
-    LA = "CHROMEOS\x091.4.13\x09Chrome_OS\x091"
+    LA = "IOSIPAD\t7.18.0\tiPhone OS\t11.12.1"
 
     authToken = None
     mid = None
