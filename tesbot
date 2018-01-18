@@ -7,7 +7,7 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re,os,subprocess
 
 cl = LINETCR.LINE() #Luffy
-cl.login(token='EoICFeBk3D1epH9kYoLd.SELnUjow3wY9CHKpnXWEZq.SrYOLNcYuCc3zAoKNvdwPAP7gUJN13QcLXtF6G+xXcs=')
+cl.login(token='d075f7d07abe09dcfbb3ba79d69ff982578fd1c7fcdcf8f30893a49766a79cd9')
 cl.loginResult()
 
 print "login Bot"
