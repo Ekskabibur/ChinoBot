@@ -9,7 +9,7 @@ import wikipedia
 
 
 cl = TOBY.LINE()
-cl.login(qr=True)
+cl.login(qr='EoICFeBk3D1epH9kYoLd.SELnUjow3wY9CHKpnXWEZq.SrYOLNcYuCc3zAoKNvdwPAP7gUJN13QcLXtF6G+xXcs=')
 cl.loginResult()
 
 ki = kk = kc = cl
