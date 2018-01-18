@@ -397,6 +397,32 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "Kelebihan batas :v")
     #-----------------=Selesai=------------------
+
+            elif "Bcc " in msg.text:
+              if msg.from_ in admin:
+                bctxt = msg.text.replace("Bcc ", "")
+                a = cl.getAllContactIds()
+                for manusia in a:
+                    cl.sendText(manusia, (bctxt))
+
+            elif "/spam: " in msg.text:
+                    if msg.from_ in admin:
+                        target=msg.text.replace("/spam: ","")
+                        target2= target.split()
+                        midd = target2[1]
+                        jumlah=int(target2[1])
+                        spamnya=target.replace(midd+""+target2[1]+" ","")
+                        if jumlah <=100:
+                            for var in range(0,jumlah):
+                                if(Bwait["Bmessage"]in ["","","/n",None]):
+                                    pass
+                                else:
+                                    cl.findAndAddContactsByMid(midd)
+                                    cl.sendText(midd,str(Bwait["Bmessage"]))
+                                    print "{notif] Spam chat Mid sukses"
+                    else:
+                        cl.sendText(msg.to, "Tidak bisa lebih dari seratus")
+
             elif msg.text in ["Bot?"]: #Ngirim Semua Kontak Bot
               if msg.from_ in admin:
                 msg.contentType = 13
